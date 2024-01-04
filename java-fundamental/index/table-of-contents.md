@@ -11,10 +11,10 @@
 - [Lenguaje Java](#Lenguaje-java)
 - [JDK y JRE](#JDK-y-JRE)
 - [Archivos de instalación](#Archivos-de-instalación)
-- [Archivos JAR, WAR y EAR](#Archivos-JAR-WAR-y-EAR)
 - [Variables de entorno](#Variables-de-entorno)
 - [IDE Java](#IDE-Java)
 - [Herramientas de construcción de proyectos](#Herramientas-de-construcción-de-proyectos)
+- [Archivos JAR, WAR y EAR](#Archivos-JAR-WAR-y-EAR)
 
 ## CONTENIDO TEMÁTICO
 
@@ -118,7 +118,8 @@ directamente como entorno operativo. Sin embargo, esto significa que los desarro
 diferente para cada sistema operativo en el que quieran que se ejecute su aplicación. La tecnología Java Runtime
 Environment (JRE) fue creada para resolver este problema.
 
-**Java Runtime Environment (JRE)** es en realidad uno de los tres componentes de la plataforma Java que cualquier programa
+**Java Runtime Environment (JRE)** es en realidad uno de los tres componentes de la plataforma Java que cualquier
+programa
 Java necesita para ejecutarse correctamente. El kit de desarrollo de Java (JDK) y la máquina virtual de Java (JVM) son
 los otros dos componentes.
 
@@ -137,7 +138,8 @@ ajustes de memoria JVM y controlar cuánta memoria interna utiliza una aplicaci�
 
 **Rol del JRE en el lenguaje de programación Java**
 
-**Java Runtime Environment (JRE)** combina el código Java existente. Para hacer esto, utiliza el kit de desarrollo de Java
+**Java Runtime Environment (JRE)** combina el código Java existente. Para hacer esto, utiliza el kit de desarrollo de
+Java
 (JDK) y un código integrado adicional llamado bibliotecas. Luego crea una instancia JVM o una copia local para
 finalmente ejecutar el programa Java. Las JVM están disponibles para diferentes sistemas operativos y el JRE crea una
 única copia del código Java que se puede ejecutar en todo tipo de JVM. De esta forma, el JRE contribuye a la
@@ -145,7 +147,8 @@ independencia de plataforma de las aplicaciones Java. Se pueden escribir una vez
 
 **Diferencias entre el JRE, la JVM y el JDK**
 
-**El Java Development Kit (JDK)** es una capa de software sobre Java Runtime Environment (JRE) que contiene compiladores,
+**El Java Development Kit (JDK)** es una capa de software sobre Java Runtime Environment (JRE) que contiene
+compiladores,
 depuradores y otras herramientas comunes a cualquier entorno de desarrollo de software. El código escrito en JDK tiene
 una sintaxis similar al inglés. El JDK lo compila y transfiere el código de bytes al JRE. Por el contrario, JRE
 contiene bibliotecas de clases y archivos de soporte JVM. Utilice estos componentes de software para ejecutar código
@@ -153,9 +156,79 @@ intermedio en cualquier dispositivo.
 
 ### Archivos de instalación
 
-### Archivos JAR, WAR y EAR
+1. [x] [Instalación del OpenJDK](https://jdk.java.net/)
+
+**Pasos de instalación:**
+
+`Image 1`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/32d63196-1a88-45b9-a767-46a1ae9d91a3.png" alt="openJdk">
+</p>
+
+`Image 2`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/c1a81633-a829-48bd-9c74-b004ade90f13.png" alt="openJdk">
+</p>
+
+`Image 3`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/e233996e-1cbd-4138-aed7-37a2e7045dc2.png" alt="openJdk">
+</p>
+
+Una vez descargado el archivo JDK, extraemos el contenido y encontraremos los siguientes archivos:
+
+`Image 4`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/45fde528-2fd6-4248-9d24-e0e66871105d.png" alt="openJdk">
+</p>
 
 ### Variables de entorno
+
+**Pasos de instalación y configuración de las variables de entorno:**
+
+Para la configuración de las variables de entorno seguiremos los siguientes pasos:
+
+`Image 1`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/567f69a7-d4ec-4811-b2bd-2b4a23782066.png" alt="openJdk">
+</p>
+
+`Image 2`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/567f69a7-d4ec-4811-b2bd-2b4a23782066.png" alt="openJdk">
+</p>
+
+`Image 3`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/cede6ea3-6f05-480a-910a-b8d1facced4f.png" alt="openJdk">
+</p>
+
+`Image 4`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/52b54a9a-ac9a-48a3-8a91-6db71f4a1ee3.png" alt="openJdk">
+</p>
+
+`Image 5`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/7bafc6f5-b278-4c52-90ba-4c0bb6c0b374.png" alt="openJdk">
+</p>
+
+`Image 6`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/e07948dc-d25f-42d0-b59d-75529f69de31.png" alt="openJdk">
+</p>
+
+### Archivos JAR, WAR y EAR
 
 ### IDE Java
 
