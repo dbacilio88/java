@@ -1,5 +1,6 @@
-![Logo](assets/images/bacsystem.jpeg "Logo Data title")
-
+<p align="center" width="100%">
+    <img width="30%" src="assets/images/bacsystem.jpeg">
+</p>
 
 # PROGRAMACIÓN JAVA
 
@@ -17,7 +18,7 @@
 
 ### 2. Estructura básica de Java
 
-- Programas fuentes y compilados
+- Programas fuentes y compilados [color]
 - Estructura de una clase
 - Variables
 - Tipo de datos primitivos
@@ -121,6 +122,8 @@
 - Logging
 
 Table of contents
+
+A very <span style='color: red;'>long</span> sentence.
 
 1. [Header Name](#header-name)
 
