@@ -127,7 +127,7 @@
 
 ### Lenguaje de programación Java
 
-### Lenguaje-java
+### Lenguaje java
 
 Java es un lenguaje de programación ampliamente utilizado para codificar aplicaciones web. Ha sido una opción popular
 entre los desarrolladores durante más de dos décadas, con millones de aplicaciones Java en uso en la actualidad. Java es
