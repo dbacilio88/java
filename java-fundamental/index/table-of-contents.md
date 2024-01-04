@@ -155,14 +155,29 @@ y software empresarial hasta aplicaciones de macrodatos y tecnologías del servi
 
 El **código** Java se escribe por primera vez en el kit de desarrollo de Java, que está disponible para Windows, Linux y
 macOS.
-Los programadores escriben en el lenguaje de programación Java y el kit lo traduce a un código de computadora que puede
-leerse en cualquier dispositivo con el software adecuado.
-Esto se logra usando un programa llamado compilador. Los compiladores toman código informático de alto nivel (como Java)
-y lo traducen a un lenguaje (llamado código de bytes) que comprenda el sistema operativo.
 
-Luego, un intérprete llamado Máquina Virtual Java (JVM) procesa el código de bytes. JMV funciona en la mayoría de las
-plataformas de software y hardware, lo que le permite transferir código Java de un dispositivo a otro. Para ejecutar
-Java, la JVM carga el código, lo verifica y proporciona el entorno de ejecución.
+Los lenguajes informáticos de alto nivel son más fáciles de leer, escribir y depurar, pero debe haber un compilador
+entre el lenguaje de programación y la máquina informática para compilar o interpretar el código de modo que pueda
+ejecutarse en un lenguaje que la computadora pueda entender.
+
+Java es un lenguaje portátil que puede ejecutarse en cualquier sistema operativo. El código de programa escrito en Java
+se compila en un formato especial llamado código de bytes y luego se ejecuta en la máquina virtual Java (JVM). Esto
+significa que el código Java se puede ejecutar en cualquier plataforma con una JVM instalada, lo que lo hace
+independiente del sistema operativo. Un programa Java consta de uno o más archivos de código fuente con la extensión
+**.java** que contienen instrucciones escritas en el lenguaje Java.
+
+Estos archivos se compilan utilizando el compilador javac, que produce archivos con una extensión **.class** que
+contienen
+código de bytes. Estos archivos de código de bytes se pueden ejecutar en cualquier plataforma donde esté instalada la
+JVM.
+
+Java también proporciona una gran cantidad de bibliotecas estándar para funciones comunes como procesamiento de
+entrada/salida, redes y desarrollo de interfaz gráfica de usuario. Estas bibliotecas están disponibles para todos los
+programas Java y se incluyen automáticamente cuando el programa se compila y ejecuta.
+
+**En resumen**, Java es un lenguaje de programación que se compila en código de bytes y se ejecuta en una máquina
+virtual, lo que permite que el código del programa se ejecute en cualquier plataforma donde esté instalada la JVM y
+proporciona una gran cantidad de bibliotecas estándar para facilitar el desarrollo de aplicaciones.
 
 `Diagrama`:
 
@@ -170,15 +185,8 @@ Java, la JVM carga el código, lo verifica y proporciona el entorno de ejecució
     <img width="80%" src="assets/images/890c2a19-d49a-4d9a-b8af-3ddcd84df612.png" alt="bacsystem">
 </p>
 
-
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 ## License
 
 [MIT](../../LICENSE)
-
-![img_2.png](img_2.png)
 
 https://www.freecodecamp.org/espanol/news/tutorial-jvm-la-arquitectura-de-la-maquina-virtual-de-java-explicada-para-principiantes/
