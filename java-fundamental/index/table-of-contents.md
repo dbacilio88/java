@@ -127,18 +127,49 @@
 
 ### Lenguaje java
 
-<div style="text-align: justify">
-<p>Java es un lenguaje de programación y plataforma informática creado y vendido por Sun Microsystems en 1995.</p>
+**Java** es un lenguaje de programación y plataforma informática creado y vendido por Sun Microsystems en 1995.
 
-<p>Es un lenguaje orientado a objetos que tiene como objetivo permitir a los desarrolladores de aplicaciones escribir un
-programa una vez y ejecutarlo en cualquier dispositivo.</p> 
+Es un **lenguaje orientado a objetos** que tiene como objetivo permitir a los desarrolladores de aplicaciones escribir
+un programa una vez y ejecutarlo en cualquier dispositivo.
 
-<p>Java es un lenguaje de programación ampliamente utilizado para codificar aplicaciones web. Ha sido una opción popular
-entre los desarrolladores durante más de dos décadas, con millones de aplicaciones Java en uso en la actualidad. Java es
-un lenguaje multiplataforma, orientado a objetos y centrado en la red que se puede utilizar como una plataforma en sí
-mismo. Es un lenguaje de programación rápido, seguro y confiable para codificarlo todo, desde aplicaciones móviles y
-software empresarial hasta aplicaciones de macrodatos y tecnologías del servidor.</p> 
-</div>
+**Java** es un lenguaje de programación ampliamente utilizado para codificar aplicaciones web. Ha sido una opción
+popular entre los desarrolladores durante más de dos décadas, con millones de aplicaciones Java en uso en la actualidad.
+Java es un lenguaje multiplataforma, orientado a objetos y centrado en la red que se puede utilizar como una plataforma
+en sí mismo. Es un lenguaje de programación rápido, seguro y confiable para codificarlo todo, desde aplicaciones móviles
+y software empresarial hasta aplicaciones de macrodatos y tecnologías del servidor.
+
+**¿Para qué se utiliza el lenguaje de programación Java?**
+
+1. [x] Desarrollo de videojuegos
+2. [x] Computación en la nube
+3. [x] Macrodatos
+4. [x] Inteligencia artificial
+5. [x] Internet de las cosas
+6. [x] Aplicaciones móviles
+7. [x] Aplicaciones web
+8. [x] Software empresarial
+9. [x] Aplicaciones de escritorio
+10. [x] Apps para Android
+
+**¿Cómo funciona Java?**
+
+El **código** Java se escribe por primera vez en el kit de desarrollo de Java, que está disponible para Windows, Linux y
+macOS.
+Los programadores escriben en el lenguaje de programación Java y el kit lo traduce a un código de computadora que puede
+leerse en cualquier dispositivo con el software adecuado.
+Esto se logra usando un programa llamado compilador. Los compiladores toman código informático de alto nivel (como Java)
+y lo traducen a un lenguaje (llamado código de bytes) que comprenda el sistema operativo.
+
+Luego, un intérprete llamado Máquina Virtual Java (JVM) procesa el código de bytes. JMV funciona en la mayoría de las
+plataformas de software y hardware, lo que le permite transferir código Java de un dispositivo a otro. Para ejecutar
+Java, la JVM carga el código, lo verifica y proporciona el entorno de ejecución.
+
+`Diagrama`:
+
+<p align="center" width="100%">
+    <img width="80%" src="assets/images/890c2a19-d49a-4d9a-b8af-3ddcd84df612.png" alt="bacsystem">
+</p>
+
 
 ## Screenshots
 
