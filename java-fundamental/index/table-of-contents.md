@@ -2,7 +2,7 @@
     <img width="30%" src="assets/images/bacsystem.jpeg" alt="bacsystem">
 </p>
 
-# PROGRAMACIÓN JAVA
+# <span style='color: #4FC3F7;'>PROGRAMACIÓN JAVA</span>
 
 ## CONTENIDO TEMÁTICO
 
