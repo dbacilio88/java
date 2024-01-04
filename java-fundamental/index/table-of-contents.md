@@ -1,5 +1,5 @@
 <p align="center" width="100%">
-    <img width="30%" src="assets/images/bacsystem.jpeg">
+    <img width="30%" src="assets/images/bacsystem.jpeg" alt="bacsystem">
 </p>
 
 # PROGRAMACIÓN JAVA
