@@ -2,13 +2,13 @@
     <img width="30%" src="assets/images/bacsystem.jpeg" alt="bacsystem">
 </p>
 
-# <span style='color: #4FC3F7;'>PROGRAMACIÓN JAVA</span>
+# PROGRAMACIÓN JAVA
 
 ## CONTENIDO TEMÁTICO
 
-### 1. Lenguaje de programación Java
+### [1. Lenguaje de programación Java](#Lenguaje-de-programación-Java)
 
-- Lenguaje Java
+- [Lenguaje Java](#Lenguaje-java)
 - Java Developer Kit (JDK) y JRE
 - Archivos de instalación
 - Archivos JAR, WAR y EAR
@@ -121,15 +121,19 @@
 - Nuevas funcionalidades de String
 - Logging
 
-Table of contents
-
-A very <span style='color: red;'>long</span> sentence.
+# CONTENIDO TEMÁTICO
 
 1. [Header Name](#header-name)
 
-### Header Name
+### Lenguaje de programación Java
 
-https://google.com
+### Lenguaje-java
+
+Java es un lenguaje de programación ampliamente utilizado para codificar aplicaciones web. Ha sido una opción popular
+entre los desarrolladores durante más de dos décadas, con millones de aplicaciones Java en uso en la actualidad. Java es
+un lenguaje multiplataforma, orientado a objetos y centrado en la red que se puede utilizar como una plataforma en sí
+mismo. Es un lenguaje de programación rápido, seguro y confiable para codificarlo todo, desde aplicaciones móviles y
+software empresarial hasta aplicaciones de macrodatos y tecnologías del servidor.
 
 ## Screenshots
 
