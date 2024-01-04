@@ -127,16 +127,18 @@
 
 ### Lenguaje java
 
-<p style="text-align: justify">Java es un lenguaje de programación y plataforma informática creado y vendido por Sun Microsystems en 1995.</p>
+<div style="text-align: justify">
+<p>Java es un lenguaje de programación y plataforma informática creado y vendido por Sun Microsystems en 1995.</p>
 
-<p style="text-align: justify">Es un lenguaje orientado a objetos que tiene como objetivo permitir a los desarrolladores de aplicaciones escribir un
+<p>Es un lenguaje orientado a objetos que tiene como objetivo permitir a los desarrolladores de aplicaciones escribir un
 programa una vez y ejecutarlo en cualquier dispositivo.</p> 
 
-<p style="text-align: justify">Java es un lenguaje de programación ampliamente utilizado para codificar aplicaciones web. Ha sido una opción popular
+<p>Java es un lenguaje de programación ampliamente utilizado para codificar aplicaciones web. Ha sido una opción popular
 entre los desarrolladores durante más de dos décadas, con millones de aplicaciones Java en uso en la actualidad. Java es
 un lenguaje multiplataforma, orientado a objetos y centrado en la red que se puede utilizar como una plataforma en sí
 mismo. Es un lenguaje de programación rápido, seguro y confiable para codificarlo todo, desde aplicaciones móviles y
 software empresarial hasta aplicaciones de macrodatos y tecnologías del servidor.</p> 
+</div>
 
 ## Screenshots
 
