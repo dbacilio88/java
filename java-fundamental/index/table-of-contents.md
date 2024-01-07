@@ -154,6 +154,16 @@ una sintaxis similar al inglés. El JDK lo compila y transfiere el código de by
 contiene bibliotecas de clases y archivos de soporte JVM. Utilice estos componentes de software para ejecutar código
 intermedio en cualquier dispositivo.
 
+`Diagrama`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/4694ab6b-9ff0-4654-9ea5-278878acf59d.png" alt="bacsystem">
+</p>
+
+```link
+https://www.shiksha.com/online-courses/articles/difference-between-jdk-jre-and-jvm/
+```
+
 ### Archivos de instalación
 
 1. [x] [Instalación del OpenJDK](https://jdk.java.net/)
@@ -230,7 +240,27 @@ Para la configuración de las variables de entorno seguiremos los siguientes pas
 
 ### Archivos JAR, WAR y EAR
 
+`Image 6`:
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/fb450c1f-fa76-4020-b8ec-349e000c39e3.png" alt="openJdk">
+</p>
+
 ### IDE Java
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/29dd7560-2c45-44b7-9b5c-6f9301c667b0.png" alt="openJdk">
+</p>
+
+
+<p align="center" width="100%">
+    <img width="50%" src="assets/images/a30dc380-ec37-4851-be86-b6e01b22e6c5.png" alt="openJdk">
+</p>
+
+
+<p align="center" width="100%" >
+    <img width="50%" src="assets/images/697ebe52-b6dd-4dce-86bf-84fe0e336fca.png" alt="openJdk">
+</p>
 
 ### Herramientas de construcción de proyectos
 
