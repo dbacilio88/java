@@ -264,112 +264,117 @@ Para la configuración de las variables de entorno seguiremos los siguientes pas
 
 ### Herramientas de construcción de proyectos
 
-El JDK y JRE
+<p align="center" width="100%" >
+    <img width="40%" src="assets/images/0da5d70b-9ac6-43f8-b174-ffbdf262764d.png" alt="openJdk">
+</p>
+
+````
+https://maven.apache.org/what-is-maven.html
+````
 
 ### 2. Estructura básica de Java
 
-- Programas fuentes y compilados
-- Estructura de una clase
-- Variables
-- Tipo de datos primitivos
-- Operadores
-- Métodos
-- Método main
-- Consola
-- Clases Wrapper
-- String, StringBuilder y StringBuffer
-- Comentarios de línea, bloque y documentación
-- Depuración
+1. [ ] Estructura de una clase
+2. [ ] Variables
+3. [ ] Tipo de datos primitivos
+4. [ ] Operadores
+5. [ ] Métodos
+6. [ ] Método main
+7. [ ] Consola
+8. [ ] Clases Wrapper
+9. [ ] String, StringBuilder y StringBuffer
+10. [ ] Comentarios de línea, bloque y documentación
+11. [ ] Depuración
 
 ### 3. Instrucciones repetitivas y
 
-- condicionales
-- Instrucciones condicionales
-- Instrucciones repetitivas
-- Instrucciones de transferencia
+1. [ ] condicionales
+2. [ ] Instrucciones condicionales
+3. [ ] Instrucciones repetitivas
+4. [ ] Instrucciones de transferencia
 
 ### 4. Programación orientada a objetos
 
-- Clases
-- Objetos
-- Constructores
-- Principios básicos de la POO
-- Encapsulamiento
-- Modificadores de acceso
-- Herencia
-- Interfaces y clases abstractas
-- Polimorfismo
+1. [ ] Clases
+2. [ ] Objetos
+3. [ ] Constructores
+4. [ ] Principios básicos de la POO
+5. [ ] Encapsulamiento
+6. [ ] Modificadores de acceso
+7. [ ] Herencia
+8. [ ] Interfaces y clases abstractas
+9. [ ] Polimorfismo
 
 ### 5. Conceptos generales en Java
 
-- Excepciones
-- Constantes y enumeraciones
-- La clase Class
-- Caste de objetos
-- Directiva static
-- Operador Lambda
-- Genéricos Garbage Collector
+1. [ ] Excepciones
+2. [ ] Constantes y enumeraciones
+3. [ ] La clase Class
+4. [ ] Caste de objetos
+5. [ ] Directiva static
+6. [ ] Operador Lambda
+7. [ ] Genéricos Garbage Collector
 
 ### 6. Arreglos y colecciones
 
-- Arreglos
-- Colecciones
-- Streams
+1. [ ] Arreglos
+2. [ ] Colecciones
+3. [ ] Streams
 
 ### 7. Hilos y concurrencia
 
-- Hilos
-- Clase Thread
-- Sincronización de métodos
+1. [ ] Hilos
+2. [ ] Clase Thread
+3. [ ] Sincronización de métodos
 
 ### 8. Archivos y serialización
 
-- Archivos
-- Interface serializable.
-- NIO.2.
-- XML }
-- JSON
-- Comparativa XML vs JSON
-- Trabajar con JSON
+1. [ ] Archivos
+2. [ ] Interface serializable.
+3. [ ] NIO.2.
+4. [ ] XML
+5. [ ] JSON
+6. [ ] Comparativa XML vs JSON
+7. [ ] Trabajar con JSON
 
 ### 9. Hilos y concurrencia
 
-- Hilos
-- Clase Thread
-- Sincronización de métodos
+1. [ ] Hilos
+2. [ ] Clase Thread
+3. [ ] Sincronización de métodos
 
 ### 10. Archivos y serialización
 
-- Archivos
-- Interface serializable
-- NIO.2
-- XML
-- JSON
-- Comparativa XML vs JSON
-- Trabajar con JSON
+1. [ ] Archivos
+2. [ ] Interface serializable
+3. [ ] NIO.2
+4. [ ] XML
+5. [ ] JSON
+6. [ ] Comparativa XML vs JSON
+7. [ ] Trabajar con JSON
 
 ### 11. Java Database Connectivity (JDBC)
 
-- Creación de base de datos, tablas y relaciones
-- Consultas
-- Inserción, eliminación y actualización
-- Conectividad con Java
-- El paquete JAVA.SQL
-- Metadatos
+1. [ ] Creación de base de datos, tablas y relaciones
+2. [ ] Consultas
+3. [ ] Inserción, eliminación y actualización
+4. [ ] Conectividad con Java
+5. [ ] El paquete JAVA.SQL
+6. [ ] Metadatos
 
 ### 12. Pruebas unitarias
 
-- Pruebas unitarias
-- Tipos de pruebas
-- JUnit
-- Mockito
+1. [ ] Pruebas unitarias
+2. [ ] Tipos de pruebas
+3. [ ] JUnit
+4. [ ] Mockito
 
 ### 13. Otras características útiles
 
-- Modularidad (jigsaw)
-- Declaración de variables con “var”
-- Nuevas funcionalidades de String
-- Logging
+1. [ ] Modularidad (jigsaw)
+2. [ ] Declaración de variables con “var”
+3. [ ] Nuevas funcionalidades de String
+4. [ ] Logging
 
 ## License
 
