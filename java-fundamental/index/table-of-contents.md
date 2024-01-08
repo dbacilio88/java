@@ -275,18 +275,18 @@ https://maven.apache.org/what-is-maven.html
 ### 2. Estructura básica de Java
 
 1. [ ] Estructura de una clase
-2. [ ] Variables
-3. [ ] Tipo de datos primitivos
-4. [ ] Operadores
-5. [ ] Métodos
-6. [ ] Método main
-7. [ ] Consola
-8. [ ] Clases Wrapper
+2. [ ] Tipo de datos primitivos
+3. [ ] Clases Wrapper
+4. [ ] Variables
+5. [ ] Operadores
+6. [ ] Métodos
+7. [ ] Método main
+8. [ ] Consola
 9. [ ] String, StringBuilder y StringBuffer
 10. [ ] Comentarios de línea, bloque y documentación
 11. [ ] Depuración
 
-### 3. Instrucciones repetitivas y
+### 3. Instrucciones repetitivas y Condicionales
 
 1. [ ] condicionales
 2. [ ] Instrucciones condicionales
