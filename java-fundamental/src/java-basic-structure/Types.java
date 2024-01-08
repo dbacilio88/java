@@ -1,3 +1,4 @@
+package java-basic-structure;
 class Types {
 
     public static void main(String[] args) {
