@@ -12,7 +12,7 @@ public class Estudiante {
         return "Ingeniería de Sistema";
     }
 
-    public String getNombre() {
+    private String getNombre() {
         return "Christian";
     }
 
