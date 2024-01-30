@@ -5,6 +5,7 @@ public class Objetos {
     public static void main(String[] args) {
 
         CuentaBancaria cb = new CuentaBancaria();
+
         cb.set("David", "Flores", 30.40f);
         cb.consultarSaldo();
         cb.retirarDinero(5f);
@@ -13,6 +14,9 @@ public class Objetos {
         cb.consultarSaldo();
         cb.depositarDinero(100f);
         cb.consultarSaldo();
+
+        cb.setNombre("Christian");
+        System.out.println(cb.getNombre());
 
 
     }
