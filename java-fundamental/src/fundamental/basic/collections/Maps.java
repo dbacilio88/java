@@ -19,7 +19,8 @@ public class Maps {
         toyota.setFab(1988);
         Carro nissan = new Carro();
         nissan.setColor("Rojo");
-        nissan.setFab(1988);
+        nissan.setFab(1987);
+
         carroHashMap.put("ferrari", ferrari);
         carroHashMap.put("toyota", toyota);
         carroHashMap.put("nissan", nissan);
