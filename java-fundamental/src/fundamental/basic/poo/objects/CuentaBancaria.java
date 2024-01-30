@@ -20,6 +20,14 @@ public class CuentaBancaria {
     private float interes;
 
     //constructores:
+    public CuentaBancaria() {
+
+    }
+
+
+    public CuentaBancaria(String nom) {
+        this.nombre = nom;
+    }
 
     //métodos:
 
