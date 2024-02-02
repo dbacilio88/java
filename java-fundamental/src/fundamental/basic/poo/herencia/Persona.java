@@ -5,6 +5,16 @@ public class Persona {
     private String apellido;
     private int edad;
 
+    public Persona() {
+
+    }
+
+    public Persona(String nombre, String apellido, int edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -27,5 +37,15 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    @Override
+    public String toString() {
+
+        String mensaje = "Mi nombre es " + nombre
+                + "\nMi apellido es " + apellido
+                + "\nMi edad es " + edad;
+        return
+                mensaje;
     }
 }
