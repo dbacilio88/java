@@ -295,39 +295,27 @@ https://maven.apache.org/what-is-maven.html
 
 ### 4. Programación orientada a objetos
 
-1. [ ] Clases
-2. [ ] Objetos
-3. [ ] Constructores
-4. [ ] Principios básicos de la POO
-5. [ ] Encapsulamiento
-6. [ ] Modificadores de acceso
-7. [ ] Herencia
-8. [ ] Interfaces y clases abstractas
-9. [ ] Polimorfismo
+1. [x] Clases
+2. [x] Objetos
+3. [x] Constructores
+4. [x] Principios básicos de la POO
+5. [x] Encapsulamiento
+6. [x] Modificadores de acceso
+7. [x] Herencia
+8. [x] Interfaces y clases abstractas
+9. [x] Polimorfismo
 
 ### 5. Conceptos generales en Java
 
-1. [ ] Excepciones
-2. [ ] Constantes y enumeraciones
-3. [ ] La clase Class
-4. [ ] Caste de objetos
-5. [ ] Directiva static
-6. [ ] Operador Lambda
-7. [ ] Genéricos Garbage Collector
+1. [x] Excepciones
+2. [x] Constantes y enumeraciones
 
 ### 6. Arreglos y colecciones
 
-1. [ ] Arreglos
-2. [ ] Colecciones
-3. [ ] Streams
+1. [x] Arreglos
+2. [x] Colecciones
 
-### 7. Hilos y concurrencia
-
-1. [ ] Hilos
-2. [ ] Clase Thread
-3. [ ] Sincronización de métodos
-
-### 8. Archivos y serialización
+### 7. Archivos y serialización
 
 1. [ ] Archivos
 2. [ ] Interface serializable.
@@ -337,44 +325,17 @@ https://maven.apache.org/what-is-maven.html
 6. [ ] Comparativa XML vs JSON
 7. [ ] Trabajar con JSON
 
-### 9. Hilos y concurrencia
-
-1. [ ] Hilos
-2. [ ] Clase Thread
-3. [ ] Sincronización de métodos
-
-### 10. Archivos y serialización
-
-1. [ ] Archivos
-2. [ ] Interface serializable
-3. [ ] NIO.2
-4. [ ] XML
-5. [ ] JSON
-6. [ ] Comparativa XML vs JSON
-7. [ ] Trabajar con JSON
-
-### 11. Java Database Connectivity (JDBC)
+### 8. Java Database Connectivity (JDBC)
 
 1. [ ] Creación de base de datos, tablas y relaciones
 2. [ ] Consultas
 3. [ ] Inserción, eliminación y actualización
 4. [ ] Conectividad con Java
 5. [ ] El paquete JAVA.SQL
-6. [ ] Metadatos
 
-### 12. Pruebas unitarias
+### 9. Trabajo aplicativo
 
-1. [ ] Pruebas unitarias
-2. [ ] Tipos de pruebas
-3. [ ] JUnit
-4. [ ] Mockito
-
-### 13. Otras características útiles
-
-1. [ ] Modularidad (jigsaw)
-2. [ ] Declaración de variables con “var”
-3. [ ] Nuevas funcionalidades de String
-4. [ ] Logging
+1. [ ] x
 
 ## License
 

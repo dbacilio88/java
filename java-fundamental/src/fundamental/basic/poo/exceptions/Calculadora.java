@@ -67,6 +67,7 @@ public class Calculadora implements Operaciones {
         try {
             result = Integer.parseInt(value);
         } catch (NumberFormatException e) {
+
             System.out.println("No se puede convertir un string a un integer");
             return null;
         }
