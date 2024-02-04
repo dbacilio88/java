@@ -1,6 +1,8 @@
 package fundamental.basic.poo.herencia;
 
 public class Persona {
+
+    private int id;
     private String nombre;
     private String apellido;
     private int edad;
@@ -13,6 +15,14 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

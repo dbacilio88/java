@@ -1,5 +1,6 @@
 package fundamental.basic.nio;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,14 +17,31 @@ public class Archivos {
      * @param args
      */
     public static void main(String[] args) {
+        String prefix = "log_";
+        String suffix = ".txt";
 
         String HOME = System.getProperty("user.home");
         System.out.println(HOME);
-        Path p = Paths.get(HOME);
-        System.out.println(p);
-        boolean isFile = Files.isDirectory(p);
-        System.out.println(isFile);
-        Path path = Paths.get(HOME + "/inexistent_file.txt");
-        System.out.println(path);
+        Path p = Paths.get(HOME + "/java/data");
+        System.out.println("path: " + p);
+        System.out.println("parent: " + p.getParent());
+        System.out.println("filesystem: " + p.getFileSystem());
+        System.out.println("root: " + p.getRoot());
+        System.out.println("name count: " + p.getNameCount());
+        try {
+            Files.createTempFile(p, null, null);
+            if (Files.exists(p)) {
+                System.out.println("Ya existe directorio");
+            } else {
+                Path create = Files.createDirectory(p);
+
+                System.out.println("create = " + create);
+            }
+
+
+        } catch (IOException e) {
+            System.out.println("error: " + e.getMessage());
+        }
+
     }
 }
