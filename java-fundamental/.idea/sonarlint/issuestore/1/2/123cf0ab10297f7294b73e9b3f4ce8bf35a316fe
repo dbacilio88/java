@@ -1,0 +1,15 @@
+
+m
+java:S2259"K"NullPointerException" will be thrown when invoking method "selectTable()".(ÌËâèÿÿÿÿÿ8Ôúà„Ø1
+d
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(‹½»8Õúà„Ø1
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÉŠ›¦øÿÿÿÿ8Õúà„Ø1
+L	java:S106"+Replace this use of System.out by a logger.(É¥ëáøÿÿÿÿ8Ùúà„Ø1
+G	java:S106""+Replace this use of System.out by a logger.(´¥ø8Úúà„Ø1
+O
+java:S4925,"-Remove this "Class.forName()", it is useless.(õ†¨Äùÿÿÿÿ8Ûúà„Ø1
+S
+java:S64373"6Revoke and change this password, as it is compromised.(Ü¯‰‹8Ûúà„Ø1
+L	java:S1066"+Replace this use of System.out by a logger.(ÚıÇÂÿÿÿÿÿ8Ûúà„Ø1
+G	java:S1068"+Replace this use of System.out by a logger.( ‡ùû8Üúà„Ø1
