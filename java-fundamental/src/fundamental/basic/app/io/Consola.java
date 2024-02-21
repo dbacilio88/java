@@ -24,7 +24,7 @@ public class Consola {
 
     }
 
-    public static String getString(String mensaje) {
+    public String getString(String mensaje) {
         System.out.print(mensaje);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String data = null;
@@ -36,21 +36,21 @@ public class Consola {
         return data;
     }
 
-    public static Integer getInteger(String mensaje) {
+    public  Integer getInteger(String mensaje) {
         System.out.print(mensaje);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Integer data = null;
         try {
             String m = br.readLine();
             data = Integer.valueOf(m);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException | NumberFormatException e) {
+           return null;
         }
         return data;
     }
 
 
-    public static String getMenu() {
+    public String getMenu() {
         return "[1] listar personas" +
                 "\n[2] registrar persona" +
                 "\n[3] actualizar persona" +
@@ -59,10 +59,6 @@ public class Consola {
                 "\n\t[*] elegir opción:";
     }
 
-    public static void main(String[] args) {
-        Integer opcion = Consola.getInteger(getMenu());
-        System.out.println(opcion);
-    }
 }
 
 

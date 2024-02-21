@@ -28,7 +28,6 @@ public class TblPersonDao implements ITblPersonDao {
             pst.setInt(3, persona.getEdad());
             pst.setString(4, persona.getDni());
 
-
             int rs = pst.executeUpdate();
 
             if (rs == 0) {
@@ -137,7 +136,7 @@ public class TblPersonDao implements ITblPersonDao {
             if (rs == 0) {
                 message = "No se actualizo";
             } else {
-                message = "Se actualizo con éxito";
+                message = "Se elimino con éxito";
             }
 
         } catch (SQLException e) {
