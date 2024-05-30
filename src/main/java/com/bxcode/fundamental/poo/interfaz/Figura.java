@@ -1,29 +1,26 @@
-package fundamental.basic.poo.Interfaz;
+package com.bxcode.fundamental.poo.interfaz;
 
-import java.util.Map;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class Figura implements ICuadrado, ITriangulo, ICirculo {
-
-    public Figura() {
-
-    }
 
     @Override
     public void calcularAreaCuadrado(int lado) {
         double area = Math.pow(lado, 2);
 
-        System.out.println("area cuadrado = " + area);
+        log.info("area cuadrado = {}", area);
     }
 
     @Override
     public void calcularAreaTriangulo(int altura, int base) {
         int area = (altura * base) / 2;
-        System.out.println("area triangulo = " + area);
+        log.info("area triangulo = {}", area);
     }
 
     @Override
     public void calcularAreaCirculo(int radio) {
         double area = Math.PI * Math.pow(radio, 2);
-        System.out.println("area circulo = " + area);
+        log.info("area circulo = {}", area);
     }
 }

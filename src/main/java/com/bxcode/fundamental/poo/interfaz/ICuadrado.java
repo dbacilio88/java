@@ -1,4 +1,4 @@
-package fundamental.basic.poo.Interfaz;
+package com.bxcode.fundamental.poo.interfaz;
 
 public interface ICuadrado {
 

@@ -1,5 +1,8 @@
-package fundamental.basic.poo.objects;
+package com.bxcode.fundamental.poo.objects;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class Reloj {
     private int hora;
     private int minuto;
@@ -19,6 +22,8 @@ public class Reloj {
                 hora = (hora + 1) % 24;
             }
         }
+        print();
+        getHora();
     }
 
     public String getHora() {
@@ -26,7 +31,7 @@ public class Reloj {
     }
 
     private void print() {
-        System.out.println("Hola mundo");
+        log.info("Hola mundo");
     }
 
 }
