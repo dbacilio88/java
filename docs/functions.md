@@ -205,7 +205,7 @@ public interface IGenericDatabaseService<T> {
 ```java
 package com.bxcode.interfaces.implementations;
 
-import com.bxcode.functions.dto.Employee;
+import com.bxcode.functional.dto.Employee;
 import com.bxcode.interfaces.contracts.IGenericDatabaseService;
 
 import java.util.List;
@@ -225,30 +225,30 @@ import java.util.List;
  */
 public class EmployeeDatabaseService implements IGenericDatabaseService<Employee> {
 
-  @Override
-  public Employee getById(long id) {
-    return Employee.builder()
-            .id(1L)
-            .name("Employee 1")
-            .description("Employee 1")
-            .build();
-  }
+    @Override
+    public Employee getById(long id) {
+        return Employee.builder()
+                .id(1L)
+                .name("Employee 1")
+                .description("Employee 1")
+                .build();
+    }
 
-  @Override
-  public List<Employee> getAll() {
-    return List.of(Employee.builder()
-            .id(1L)
-            .name("Employee 1")
-            .description("Employee 1")
-            .build());
-  }
+    @Override
+    public List<Employee> getAll() {
+        return List.of(Employee.builder()
+                .id(1L)
+                .name("Employee 1")
+                .description("Employee 1")
+                .build());
+    }
 }
 ```
 
 ```java
 package com.bxcode.interfaces.implementations;
 
-import com.bxcode.functions.dto.Product;
+import com.bxcode.functional.dto.Product;
 import com.bxcode.interfaces.contracts.IGenericDatabaseService;
 
 import java.util.List;
@@ -268,23 +268,23 @@ import java.util.List;
  */
 public class ProductDatabaseService implements IGenericDatabaseService<Product> {
 
-  @Override
-  public Product getById(long id) {
-    return Product.builder()
-            .id(1L)
-            .name("Product 1")
-            .description("Description 1")
-            .build();
-  }
+    @Override
+    public Product getById(long id) {
+        return Product.builder()
+                .id(1L)
+                .name("Product 1")
+                .description("Description 1")
+                .build();
+    }
 
-  @Override
-  public List<Product> getAll() {
-    return List.of(Product.builder()
-            .id(1L)
-            .name("Product 1")
-            .description("Description 1")
-            .build());
-  }
+    @Override
+    public List<Product> getAll() {
+        return List.of(Product.builder()
+                .id(1L)
+                .name("Product 1")
+                .description("Description 1")
+                .build());
+    }
 }
 ```
 
@@ -301,8 +301,8 @@ usar una vez sin necesidad de crear un archivo separado.
 ```java
 package com.bxcode.interfaces.test;
 
-import com.bxcode.functions.dto.Employee;
-import com.bxcode.functions.dto.Product;
+import com.bxcode.functional.dto.Employee;
+import com.bxcode.functional.dto.Product;
 import com.bxcode.interfaces.contracts.IDatabaseService;
 import com.bxcode.interfaces.contracts.IGenericDatabaseService;
 import com.bxcode.interfaces.implementations.EmployeeDatabaseService;
@@ -327,37 +327,37 @@ import java.util.List;
  */
 public class AppInterfaces {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    IDatabaseService postgres = new PostgresDatabaseService();
-    IDatabaseService mongo = new MongoDatabaseService();
-    EmployeeDatabaseService employee = new EmployeeDatabaseService();
-    ProductDatabaseService product = new ProductDatabaseService();
+        IDatabaseService postgres = new PostgresDatabaseService();
+        IDatabaseService mongo = new MongoDatabaseService();
+        EmployeeDatabaseService employee = new EmployeeDatabaseService();
+        ProductDatabaseService product = new ProductDatabaseService();
 
-    System.out.println(postgres.getAll());
-    System.out.println(mongo.getAll());
+        System.out.println(postgres.getAll());
+        System.out.println(mongo.getAll());
 
-    System.out.println(employee.getById(1L));
-    System.out.println(product.getById(1L));
+        System.out.println(employee.getById(1L));
+        System.out.println(product.getById(1L));
 
-    System.out.println(Product.class.getName());
-    System.out.println(Employee.class.getName());
+        System.out.println(Product.class.getName());
+        System.out.println(Employee.class.getName());
 
 
-    IGenericDatabaseService<String> anonymousService = new IGenericDatabaseService<>() {
-      @Override
-      public String getById(long id) {
-        return "Id anonymousService";
-      }
+        IGenericDatabaseService<String> anonymousService = new IGenericDatabaseService<>() {
+            @Override
+            public String getById(long id) {
+                return "Id anonymousService";
+            }
 
-      @Override
-      public List<String> getAll() {
-        return List.of("anonymousService", "database service");
-      }
-    };
+            @Override
+            public List<String> getAll() {
+                return List.of("anonymousService", "database service");
+            }
+        };
 
-    System.out.println(anonymousService);
-  }
+        System.out.println(anonymousService);
+    }
 }
 ```
 
@@ -445,7 +445,7 @@ public interface IMathFunctional {
 ```java
 package com.bxcode.lambda.test;
 
-import com.bxcode.functions.lambda.contracts.IMathFunctional;
+import com.bxcode.functional.lambda.contracts.IMathFunctional;
 
 /**
  * AppLambda
@@ -522,10 +522,10 @@ public interface IPrinterFunctional<T> {
 ```java
 package com.bxcode.lambda.test;
 
-import com.bxcode.functions.dto.Employee;
-import com.bxcode.functions.dto.Product;
-import com.bxcode.functions.lambda.contracts.IMathFunctional;
-import com.bxcode.functions.lambda.contracts.IPrinterFunctional;
+import com.bxcode.functional.dto.Employee;
+import com.bxcode.functional.dto.Product;
+import com.bxcode.functional.lambda.contracts.IMathFunctional;
+import com.bxcode.functional.lambda.contracts.IPrinterFunctional;
 
 /**
  * AppLambda
@@ -542,36 +542,36 @@ import com.bxcode.functions.lambda.contracts.IPrinterFunctional;
  */
 public class AppLambda {
 
-  public static void main(String[] args) {
-    IMathFunctional addition = Double::sum;
-    IMathFunctional subtraction = (a, b) -> a - b;
-    IMathFunctional division = (a, b) -> a / b;
-    IMathFunctional multiplication = (a, b) -> a * b;
+    public static void main(String[] args) {
+        IMathFunctional addition = Double::sum;
+        IMathFunctional subtraction = (a, b) -> a - b;
+        IMathFunctional division = (a, b) -> a / b;
+        IMathFunctional multiplication = (a, b) -> a * b;
 
-    System.out.println(addition.sum(1.2, 2.2));
-    System.out.println(subtraction.execute(1.2, 2.2));
-    System.out.println(division.execute(1.2, 2.2));
-    System.out.println(multiplication.execute(1.2, 2.2));
+        System.out.println(addition.sum(1.2, 2.2));
+        System.out.println(subtraction.execute(1.2, 2.2));
+        System.out.println(division.execute(1.2, 2.2));
+        System.out.println(multiplication.execute(1.2, 2.2));
 
 
-    IPrinterFunctional<String> printString = System.out::println;
-    printString.print("Hola mundo");
+        IPrinterFunctional<String> printString = System.out::println;
+        printString.print("Hola mundo");
 
-    IPrinterFunctional<Product> printProduct = System.out::println;
-    printProduct.print(Product.builder()
-            .id(1L)
-            .name("Producto expression lambda")
-            .description("Producto expression lambda")
-            .build());
+        IPrinterFunctional<Product> printProduct = System.out::println;
+        printProduct.print(Product.builder()
+                .id(1L)
+                .name("Producto expression lambda")
+                .description("Producto expression lambda")
+                .build());
 
-    IPrinterFunctional<Employee> printEmployee = System.out::println;
+        IPrinterFunctional<Employee> printEmployee = System.out::println;
 
-    printEmployee.print(Employee.builder()
-            .id(1L)
-            .name("Employee expression lambda")
-            .description("Employee expression lambda")
-            .build());
-  }
+        printEmployee.print(Employee.builder()
+                .id(1L)
+                .name("Employee expression lambda")
+                .description("Employee expression lambda")
+                .build());
+    }
 }
 ```
 
@@ -721,7 +721,7 @@ public class AppLambda {
 ```java
 package com.bxcode.lambda.test;
 
-import com.bxcode.functions.dto.Product;
+import com.bxcode.functional.dto.Product;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.function.Supplier;
@@ -743,16 +743,16 @@ import java.util.function.Supplier;
 @Log4j2
 public class AppLambda {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    //expresión lambda:
-    Supplier<Product> productEL = () -> new Product();
-    //referencia a método constructor:
-    Supplier<Product> productRM = Product::new;
+        //expresión lambda:
+        Supplier<Product> productEL = () -> new Product();
+        //referencia a método constructor:
+        Supplier<Product> productRM = Product::new;
 
-    log.info("productEL: {}", productEL.get());
-    log.info("productRM : {}", productRM.get());
-  }
+        log.info("productEL: {}", productEL.get());
+        log.info("productRM : {}", productRM.get());
+    }
 }
 ```
 
@@ -814,7 +814,7 @@ expresiones lambda proporcionan una forma concisa de representar una instancia d
   parámetro.
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -855,9 +855,9 @@ public class AppFunctions {
 ```
 
 ```java 
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
-import com.bxcode.functions.dto.Product;
+import com.bxcode.functional.dto.Product;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.*;
@@ -881,42 +881,42 @@ import java.util.function.Function;
 @Log4j2
 public class AppFunctions {
 
-  static Function<Product, ByteArrayOutputStream> serializer = p -> {
-    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-    try (ObjectOutputStream oos = new ObjectOutputStream(stream)) {
-      oos.writeObject(p);
-      oos.flush();
-    } catch (IOException e) {
-      log.error("error serializer: {}", e.getMessage());
+    static Function<Product, ByteArrayOutputStream> serializer = p -> {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        try (ObjectOutputStream oos = new ObjectOutputStream(stream)) {
+            oos.writeObject(p);
+            oos.flush();
+        } catch (IOException e) {
+            log.error("error serializer: {}", e.getMessage());
+        }
+
+        return stream;
+    };
+
+    static Function<ByteArrayInputStream, Product> deserializer = p -> {
+        try (ObjectInputStream ois = new ObjectInputStream(p)) {
+            return (Product) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            log.error("error deserializer: {}", e.getMessage());
+        }
+        return null;
+    };
+
+    public static void main(String[] args) {
+        ByteArrayOutputStream stream = serializer.apply(Product.builder()
+                .id(1L)
+                .name("serializer product")
+                .description("serializer product")
+                .build());
+
+
+        //trasmitir a través de la red
+        log.info("stream serializer {}", Arrays.toString(stream.toByteArray()));
+
+        Product product = deserializer.apply(new ByteArrayInputStream(stream.toByteArray()));
+
+        log.info("stream deserializer {}", product);
     }
-
-    return stream;
-  };
-
-  static Function<ByteArrayInputStream, Product> deserializer = p -> {
-    try (ObjectInputStream ois = new ObjectInputStream(p)) {
-      return (Product) ois.readObject();
-    } catch (IOException | ClassNotFoundException e) {
-      log.error("error deserializer: {}", e.getMessage());
-    }
-    return null;
-  };
-
-  public static void main(String[] args) {
-    ByteArrayOutputStream stream = serializer.apply(Product.builder()
-            .id(1L)
-            .name("serializer product")
-            .description("serializer product")
-            .build());
-
-
-    //trasmitir a través de la red
-    log.info("stream serializer {}", Arrays.toString(stream.toByteArray()));
-
-    Product product = deserializer.apply(new ByteArrayInputStream(stream.toByteArray()));
-
-    log.info("stream deserializer {}", product);
-  }
 }
 ```
 
@@ -926,7 +926,7 @@ public class AppFunctions {
   Function.
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -993,7 +993,7 @@ public class AppFunctions {
   lambda o una referencia a un método.
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -1067,7 +1067,7 @@ public class AppFunctions {
   Esta es una interfaz funcional cuyo método funcional es test(Object, Object).
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -1123,7 +1123,7 @@ public class AppFunctions {
   Streams para realizar acciones sobre cada elemento de una colección de datos.
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -1179,9 +1179,9 @@ public class AppFunctions {
   de tipo T.
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
-import com.bxcode.functions.dto.Product;
+import com.bxcode.functional.dto.Product;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.*;
@@ -1206,42 +1206,42 @@ import java.util.stream.Stream;
 @Log4j2
 public class AppFunctions {
 
-  private static Random random = new Random();
+    private static Random random = new Random();
 
-  // Definir un Supplier que genera un número aleatorio entre 0 y 100
-  static Supplier<Integer> randomSupplier = () -> random.nextInt(101);
+    // Definir un Supplier que genera un número aleatorio entre 0 y 100
+    static Supplier<Integer> randomSupplier = () -> random.nextInt(101);
 
-  static Supplier<Product> productSupplier = () -> Product.builder()
-          .id(1L)
-          .name("product supplier")
-          .description("product supplier")
-          .build();
-
-
-  public static void main(String[] args) {
-
-    Set<Integer> numbers = Set.of(1, 2, 3, 4, 5);
-    List<Integer> squares = new LinkedList<>();
-
-    numbers.forEach(n -> squares.add(n * n));
-    log.info("number squares {}", squares);
-
-    Map<Boolean, String> map = Map.of(true, "Hello", false, "World");
-
-    map.forEach((k, v) -> log.info("key {} - value {}", k, v));
+    static Supplier<Product> productSupplier = () -> Product.builder()
+            .id(1L)
+            .name("product supplier")
+            .description("product supplier")
+            .build();
 
 
-    // Obtener el número aleatorio usando el Supplier
-    int number = randomSupplier.get();
-    log.info("number random {}", number);
+    public static void main(String[] args) {
 
-    // Generar una secuencia de 5 números enteros usando el Supplier
-    Stream<Integer> integerStream = Stream.generate(randomSupplier).limit(10);
-    integerStream.forEach(log::info);
+        Set<Integer> numbers = Set.of(1, 2, 3, 4, 5);
+        List<Integer> squares = new LinkedList<>();
 
-    log.info("product supplier {}", productSupplier.get());
+        numbers.forEach(n -> squares.add(n * n));
+        log.info("number squares {}", squares);
 
-  }
+        Map<Boolean, String> map = Map.of(true, "Hello", false, "World");
+
+        map.forEach((k, v) -> log.info("key {} - value {}", k, v));
+
+
+        // Obtener el número aleatorio usando el Supplier
+        int number = randomSupplier.get();
+        log.info("number random {}", number);
+
+        // Generar una secuencia de 5 números enteros usando el Supplier
+        Stream<Integer> integerStream = Stream.generate(randomSupplier).limit(10);
+        integerStream.forEach(log::info);
+
+        log.info("product supplier {}", productSupplier.get());
+
+    }
 }
 ```
 
@@ -1255,7 +1255,7 @@ public class AppFunctions {
   especialización de Function para el caso en que el operando y el resultado son del mismo tipo.
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -1321,7 +1321,7 @@ public class AppFunctions {
   binarias, como encontrar el máximo, el mínimo, la suma, etc.
 
 ```java
-package com.bxcode.functions.test;
+package com.bxcode.functional.test;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -1364,3 +1364,259 @@ public class AppFunctions {
     }
 }
 ```
+
+### Lectura de archivos con lambdas
+
+```java
+package com.bxcode.functional.lambda.test;
+
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
+
+/**
+ * AppLambda
+ * <p>
+ * AppLambda class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 27/05/2024
+ */
+
+@Log4j2
+public class AppLambda {
+
+    public static void main(String[] args) {
+
+        Path path = Paths.get("src/main/resources/data/lambda.txt");
+
+        try (Stream<String> stream = Files.lines(path).onClose(() -> log.info("Close reader"))) {
+            log.info("lines {}", stream.count());
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+
+```
+
+### Concurrencia e Hilos y lambdas
+
+```java
+package com.bxcode.functional.lambda.test;
+
+import lombok.extern.log4j.Log4j2;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+
+/**
+ * AppLambda
+ * <p>
+ * AppLambda class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 27/05/2024
+ */
+
+@Log4j2
+public class AppLambda {
+
+    static Runnable runnable = () -> {
+        long r = 0L;
+        log.info("runnable {}", Thread.currentThread().getName());
+        for (int i = 0; i < 100000; i++) {
+            r += i;
+        }
+        log.info("total runnable: {}", r);
+    };
+
+    static Callable<Long> longCallable = () -> {
+        long r = 0L;
+        log.info("longCallable {}", Thread.currentThread().getName());
+        for (int i = 0; i < 100000; i++) {
+            r += i;
+        }
+        log.info("total longCallable: {}", r);
+        return r;
+    };
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        log.info("main {}", Thread.currentThread().getName());
+        var result = Executors.newSingleThreadExecutor();
+        result.submit(runnable);
+        var suma = result.submit(longCallable);
+        log.info("suma main {}", suma.get());
+    }
+}
+```
+
+### Patrón Strategy con lambdas
+
+```java
+package com.bxcode.functional.lambda.test;
+
+import com.bxcode.functional.dto.Product;
+import lombok.extern.log4j.Log4j2;
+
+import java.util.List;
+
+import static com.bxcode.functional.dto.Strategies.*;
+
+/**
+ * AppLambda
+ * <p>
+ * AppLambda class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 27/05/2024
+ */
+
+@Log4j2
+public class AppLambda {
+
+
+    public static void main(String[] args) {
+        Product product1 = Product.builder()
+                .id(1L)
+                .name("product1")
+                .description("product1")
+                .price(12.8)
+                .type("Basic")
+                .build();
+        Product product2 = Product.builder()
+                .id(1L)
+                .name("product2")
+                .description("product2")
+                .price(12.8)
+                .type("Plus")
+                .build();
+        Product product3 = Product.builder()
+                .id(1L)
+                .name("product3")
+                .description("product3")
+                .price(12.8)
+                .type("Premium")
+                .build();
+
+        var products = List.of(product1, product2, product3);
+
+        products.forEach(p -> {
+            switch (p.getType()) {
+                case "Basic":
+                    p.setApplyDiscount(basicDiscount);
+                    break;
+                case "Plus":
+                    p.setApplyDiscount(plusDiscount);
+                    break;
+                default:
+                    p.setApplyDiscount(premiumDiscount);
+                    break;
+            }
+        });
+
+        products.forEach(p -> {
+            log.info("Product: {} - Price {}, Discount {}", p.getName(), p.getPrice(), p.getApplyDiscount().get(p.getPrice()));
+        });
+
+    }
+}
+```
+
+### Ordenando Lista con lambdas
+
+```java
+package com.bxcode.functional.lambda.test;
+
+import com.bxcode.functional.dto.Employee;
+import lombok.extern.log4j.Log4j2;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
+/**
+ * AppLambda
+ * <p>
+ * AppLambda class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 27/05/2024
+ */
+
+@Log4j2
+public class AppLambda {
+
+
+    public static void main(String[] args) {
+
+        List<Integer> number = Arrays.asList(3, 4, 1, 7, 2, 5, 8, 1);
+        number.sort((a, b) -> a - b);
+        number.sort(Comparator.comparingInt(a -> a));
+        log.info("number {}", number);
+
+        List<String> names = Arrays.asList("David", "Juan", "Roberto");
+        names.sort(String::compareTo);
+        names.sort(Comparator.reverseOrder());
+        log.info("names {}", names);
+
+        Employee employee1 = Employee.builder()
+                .id(1L)
+                .name("Miguel")
+                .age(26)
+                .description("employee1")
+                .build();
+        Employee employee2 = Employee.builder()
+                .id(2L)
+                .name("Antonio")
+                .age(25)
+                .description("employee2")
+                .build();
+        Employee employee3 = Employee.builder()
+                .id(3L)
+                .age(22)
+                .name("Sarita")
+                .description("employee3")
+                .build();
+
+        List<Employee> employees = Arrays.asList(employee1, employee2, employee3);
+        //employees.sort((a, b) -> a.getName().compareTo(b.getName()));
+        employees.sort(Comparator.comparingInt(Employee::getAge).thenComparing(Employee::getName));
+        log.info("employees {}", employees);
+    }
+}
+```
+
+### Stream
+
+Es un objeto que permite realizar de forma sencilla operaciones de búsqueda, filtrado, recolección y otras operaciones
+sobre una colección de datos.
+Un Stream recorre todos los elementos de una colección y durante el proceso realiza alguna operación. Una vez terminada
+la ejecución se cierra y no se puede volver a utilizar.
+
+

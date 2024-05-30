@@ -1,4 +1,4 @@
-package com.bxcode.functions.interfaces.contracts;
+package com.bxcode.functional.functions.contracts;
 
 import java.util.List;
 

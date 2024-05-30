@@ -1,4 +1,4 @@
-package com.bxcode.functions.lambda.contracts;
+package com.bxcode.functional.lambda.contracts;
 
 /**
  * IMathFunctional

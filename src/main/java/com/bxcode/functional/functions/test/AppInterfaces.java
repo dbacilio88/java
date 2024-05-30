@@ -1,13 +1,13 @@
-package com.bxcode.functions.interfaces.test;
+package com.bxcode.functional.functions.test;
 
-import com.bxcode.functions.dto.Employee;
-import com.bxcode.functions.dto.Product;
-import com.bxcode.functions.interfaces.contracts.IDatabaseService;
-import com.bxcode.functions.interfaces.contracts.IGenericDatabaseService;
-import com.bxcode.functions.interfaces.implementations.EmployeeDatabaseService;
-import com.bxcode.functions.interfaces.implementations.MongoDatabaseService;
-import com.bxcode.functions.interfaces.implementations.PostgresDatabaseService;
-import com.bxcode.functions.interfaces.implementations.ProductDatabaseService;
+import com.bxcode.functional.dto.Employee;
+import com.bxcode.functional.dto.Product;
+import com.bxcode.functional.functions.contracts.IDatabaseService;
+import com.bxcode.functional.functions.contracts.IGenericDatabaseService;
+import com.bxcode.functional.functions.implementations.EmployeeDatabaseService;
+import com.bxcode.functional.functions.implementations.MongoDatabaseService;
+import com.bxcode.functional.functions.implementations.PostgresDatabaseService;
+import com.bxcode.functional.functions.implementations.ProductDatabaseService;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.List;

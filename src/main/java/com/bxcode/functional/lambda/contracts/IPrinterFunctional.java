@@ -1,11 +1,9 @@
-package com.bxcode.functions.interfaces.contracts;
-
-import java.util.List;
+package com.bxcode.functional.lambda.contracts;
 
 /**
- * IGenericDatabaseService
+ * IPrinterFunctional
  * <p>
- * IGenericDatabaseService interface.
+ * IPrinterFunctional interface.
  * <p>
  * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
  * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
@@ -15,9 +13,9 @@ import java.util.List;
  * @author dbacilio88@outlook.es
  * @since 27/05/2024
  */
-public interface IGenericDatabaseService<T> {
 
-    T getById(long id);
+@FunctionalInterface
+public interface IPrinterFunctional<T> {
 
-    List<T> getAll();
+    void print(T t);
 }

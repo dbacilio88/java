@@ -1,4 +1,4 @@
-package com.bxcode.functions.test;
+package com.bxcode.functional.functions.test;
 
 import lombok.extern.log4j.Log4j2;
 

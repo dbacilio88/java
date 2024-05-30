@@ -1,6 +1,6 @@
-package com.bxcode.functions.interfaces.implementations;
+package com.bxcode.functional.functions.implementations;
 
-import com.bxcode.functions.interfaces.contracts.IDatabaseService;
+import com.bxcode.functional.functions.contracts.IDatabaseService;
 
 import java.util.List;
 

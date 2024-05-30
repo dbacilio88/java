@@ -1,7 +1,7 @@
-package com.bxcode.functions.interfaces.implementations;
+package com.bxcode.functional.functions.implementations;
 
-import com.bxcode.functions.dto.Employee;
-import com.bxcode.functions.interfaces.contracts.IGenericDatabaseService;
+import com.bxcode.functional.dto.Employee;
+import com.bxcode.functional.functions.contracts.IGenericDatabaseService;
 
 import java.util.List;
 
