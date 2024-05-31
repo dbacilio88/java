@@ -9,14 +9,15 @@ argumentos y no tienen efectos secundarios observables.
 
 Aunque Java es principalmente un lenguaje de programación orientado a objetos, a partir de Java 8 se introdujeron
 características que permiten la programación funcional, como expresiones lambda, interfaces funcionales predefinidas en
-el paquete java.util.function, el API de Streams y los métodos de referencia.
+el paquete java.util.function, la API de Streams y los métodos de referencia.
 
 Características Principales de la Programación Funcional en Java:
 
 - Expresiones Lambda: Las expresiones lambda permiten definir funciones anónimas de forma concisa y se utilizan
   principalmente para pasar comportamientos como argumentos a métodos, como en el caso de las operaciones en Streams.
 - Interfaces Funcionales: Java 8 introdujo un conjunto de interfaces funcionales predefinidas en el paquete
-  java.util.function, como Function, Predicate, Consumer, Supplier, etc. Estas interfaces proporcionan un mecanismo
+  **`java.util.function`**, como Function, Predicate, Consumer, Supplier, etc. Estas interfaces proporcionan un
+  mecanismo
   estándar para representar funciones y predicados en Java.
 - API de Streams: La API de Streams permite operar de manera declarativa y funcional en colecciones de datos, como
   listas,
@@ -37,7 +38,7 @@ Ventajas de la Programación Funcional en Java:
   más simples, lo que facilita la creación de código modular y reutilizable.
 - Programación Declarativa: El uso de Streams y expresiones lambda permite expresar operaciones en términos de qué hacer
   en lugar de cómo hacerlo, lo que resulta en un código más declarativo y fácil de entender.
-- Paralelismo y Concurrencia: El API de Streams facilita la ejecución paralela de operaciones en colecciones de datos,
+- Paralelismo y Concurrencia: La API de Streams facilita la ejecución paralela de operaciones en colecciones de datos,
   lo que puede mejorar el rendimiento en sistemas multiproceso.
 
 ### Una expresión lambda
@@ -982,7 +983,7 @@ public class AppFunctions {
 #### Interface Predicate<T>
 
 - En Java es una interfaz funcional que representa un predicado (una función que devuelve un valor booleano) de un solo
-  argumento. Es una parte fundamental del paquete java.util.function y se utiliza ampliamente en el API de Streams de
+  argumento. Es una parte fundamental del paquete java.util.function y se utiliza ampliamente en la API de Streams de
   Java para filtrar datos y realizar otras operaciones que implican la evaluación de condiciones.
 
 - función lógica: Representa un predicado, devuelve un boolean.
@@ -1619,4 +1620,1051 @@ sobre una colección de datos.
 Un Stream recorre todos los elementos de una colección y durante el proceso realiza alguna operación. Una vez terminada
 la ejecución se cierra y no se puede volver a utilizar.
 
+```java
+import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
+Stream<Integer> myStream = anyCollection.Stream();
+Stream<Integer> myStream = Arrays.Stream(anyArrays);
+Stream<Integer> myStream = Arrays.of(1, 2, 3);
+IntStream myStream = IntStream.range(1, 10);
+```
+
+#### Tipos de métodos en los streams
+
+Un stream tiene **`métodos intermedios`** los cuales devuelven otro stream o podemos seguir haciendo más operaciones y
+los **`métodos finales`** los cuales cierran el stream y ya nos permiten seguir realizando operaciones.
+
+#### Métodos finales
+
+- **`count()`**: Devuelve el recuento de elementos de esta secuencia.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+            long size = stream.count();
+            log.info("size {}", size);
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`forEach(Consumer<? extends T> consumer>)`**: Realiza una acción para cada elemento de esta secuencia.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+            stream.forEach(p -> log.info("title {}", p.getTitle()));
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`allMatch(Predicate<? super T> predicate)`**:Devuelve si todos los elementos de esta secuencia coinciden con el
+  predicado proporcionado.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+            boolean b = stream.allMatch(p -> p.getUserId() == 10);
+            log.info("bo {}", b);
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`anyMatch(Predicate<? super T> predicate)`**: Devuelve si algún elemento de esta secuencia coincide con el predicado
+  proporcionado.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+            boolean b = stream.anyMatch(p -> p.getUserId() == 10);
+            log.info("bo {}", b);
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`forEachOrdered(Consumer<? super T> action)`**: Realiza una acción para cada elemento de esta secuencia, en el orden
+  de encuentro de la secuencia si la secuencia tiene un orden de encuentro definido.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            stream.forEachOrdered(log::info);
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`reduce(BinaryOperator<? super T> accomulator>)`**: Realiza la reducción de todos los elementos del stream a un solo
+  elemento.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.BinaryOperator;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static BinaryOperator<Integer> reduce = Integer::sum;
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            Optional<Integer> sum = stream.map(Post::getId).reduce(reduce);
+
+            sum.ifPresent(integer -> log.info("La suma {}", integer));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`max(Comparator<? super T> comparator>)`**: Devuelve el elemento máximo de esta secuencia según el Comparador
+  proporcionado.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Comparator<Post> comparator = (o1, o2) -> o1.getId() - o2.getId();
+    static Comparator<Post> comparingInt = Comparator.comparingLong(Post::getUserId);
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            Optional<Post> sum = stream.max(comparator);
+
+            sum.ifPresent(integer -> log.info("El id max del post {}", integer));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`min(Comparator<? super T> comparator>)`**: Devuelve el elemento mínimo de esta secuencia según el Comparador
+  proporcionado.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Comparator<Post> comparator = (o1, o2) -> o1.getId() - o2.getId();
+    static Comparator<Post> comparingInt = Comparator.comparingLong(Post::getUserId);
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            Optional<Post> sum = stream.min(comparator);
+
+            sum.ifPresent(integer -> log.info("El id min del post {}", integer));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`findFirst()`**: Devuelve un Opcional que describe el primer elemento de esta secuencia, o un Opcional vacío si la
+  secuencia está vacía.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Predicate<Post> predicate = post -> post.getUserId() == 10;
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            Optional<Post> first = stream.filter(predicate)
+                    .findFirst();
+
+            first.ifPresent(integer -> log.info("El id first del post {}", integer));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`findAny()`**: Devuelve un Opcional que describe algún elemento de la secuencia, o un Opcional vacío si la secuencia
+  está vacía.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Predicate<Post> predicate = post -> post.getUserId() == 10;
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            Optional<Post> first = stream.filter(predicate)
+                    .findAny();
+
+            first.ifPresent(integer -> log.info("El id any del post {}", integer));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`noneMatch(Predicate<? super T> predicate)`**: Devuelve si ningún elemento de esta secuencia coincide con el
+  predicado proporcionado.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Predicate<Post> predicate = post -> post.getUserId() != 10;
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            boolean none = stream
+                    .noneMatch(predicate);
+
+            log.info("El id any del post {}", none);
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+#### Métodos Intermedios
+
+- **`distinct()`**: Devuelve una secuencia que consta de los distintos elementos (según Object.equals(Object)) de esta
+  secuencia.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            List<Long> list = stream
+                    .map(Post::getUserId)
+                    .distinct()
+                    .collect(Collectors.toList());
+            list.forEach(l -> log.info("list numbers {}", l));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`limit(long maxSize)`**: Devuelve una secuencia que consta de los elementos de esta secuencia, truncada para que no
+  tenga una longitud superior a maxSize.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            List<String> list = stream
+                    .map(Post::getTitle)
+                    .limit(10)
+                    .collect(Collectors.toList());
+
+
+            list.forEach(l -> log.info("list titles: {}", l));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`skip(long n)`**: Devuelve una secuencia que consta de los elementos restantes de esta secuencia después de
+  descartar los primeros **`n`** elementos de la secuencia.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            List<Integer> list = stream
+                    .map(Post::getId)
+                    .skip(199)
+                    .collect(Collectors.toList());
+
+
+            list.forEach(l -> log.info("list numbers: {}", l));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`peek(Consumer<? super T> action)`**: Devuelve una secuencia que consta de los elementos de esta secuencia y,
+  además, realiza la acción proporcionada en cada elemento a medida que los elementos se consumen de la secuencia
+  resultante.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Consumer<Post> consumer = post -> log.info("consumer {}", post.getTitle().toUpperCase());
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            List<Integer> list = stream
+                    .filter(p -> p.getUserId() == 10)
+                    .peek(consumer)
+                    .map(Post::getId)
+                    .collect(Collectors.toList());
+
+
+            list.forEach(l -> log.info("list numbers: {}", l));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`sorted()`**: Devuelve una secuencia que consta de los elementos de esta secuencia, ordenados según el orden
+  natural.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Predicate<Post> predicate = post -> post.getUserId() == 10;
+    static Consumer<Post> consumer = post -> log.info("consumer {}", post.getTitle().toUpperCase());
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            List<String> list = stream
+                    .filter(predicate)
+                    .limit(5)
+                    .map(Post::getTitle)
+                    .sorted()
+                    .collect(Collectors.toList());
+
+            list.forEach(l -> log.info("list titles: {}", l));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
+
+- **`sorted(Comparator<? super T> comparator)`**: Devuelve una secuencia que consta de los elementos de esta secuencia,
+  ordenados según el Comparador proporcionado.
+
+```java
+package com.bxcode.functional.streams.test;
+
+import com.bxcode.functional.dto.Post;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * AppStreams
+ * <p>
+ * AppStreams class.
+ * <p>
+ * THIS COMPONENT WAS BUILT ACCORDING TO THE DEVELOPMENT STANDARDS
+ * AND THE BXCODE APPLICATION DEVELOPMENT PROCEDURE AND IS PROTECTED
+ * BY THE LAWS OF INTELLECTUAL PROPERTY AND COPYRIGHT...
+ *
+ * @author Bxcode
+ * @author dbacilio88@outlook.es
+ * @since 30/05/2024
+ */
+@Log4j2
+public class AppStreams {
+
+    static Predicate<Post> predicate = post -> post.getUserId() == 10;
+    static Comparator<String> comparator = (o1, o2) -> o1.compareTo(o2);
+    static Comparator<String> stringComparator = Comparator.naturalOrder();
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/data/data.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try (Stream<String> lines = Files.lines(path)) {
+            StringBuilder sb = new StringBuilder();
+            lines.forEach(sb::append);
+            String json = sb.toString();
+            List<Post> post = mapper.readValue(json, new TypeReference<>() {
+            });
+
+            Stream<Post> stream = post.stream();
+
+            List<String> list = stream
+                    .filter(predicate)
+                    .limit(5)
+                    .map(Post::getTitle)
+                    .sorted(stringComparator)
+                    .collect(Collectors.toList());
+
+            list.forEach(l -> log.info("list titles: {}", l));
+
+        } catch (IOException e) {
+            log.error("IOException {}", e.getMessage());
+        }
+    }
+}
+```
