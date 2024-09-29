@@ -1,6 +1,4 @@
-<p align="center" width="100%">
-    <img  src="assets/images/bacsystem.jpeg" alt="bacsystem" width="30%">
-</p>
+
 
 # PROGRAMACIÓN JAVA
 
@@ -270,6 +268,7 @@ Para la configuración de las variables de entorno seguiremos los siguientes pas
 
 ````
 https://maven.apache.org/what-is-maven.html
+https://jdk.java.net/java-se-ri/14
 ````
 
 ### 2. Estructura básica de Java
